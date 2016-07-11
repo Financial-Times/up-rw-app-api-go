@@ -14,3 +14,13 @@ type Service interface {
 	Check() error
 	Initialise() error
 }
+
+// IDService is an additional optional interface that read-write applications can choose to implement
+type IDService interface {
+	IDs(ids chan<- IDEntry, errCh chan<- error, stopChan <-chan struct{})
+}
+
+// IDEntry is used when listing __ids.
+type IDEntry struct {
+	ID string `json:"id"`
+}
