@@ -22,5 +22,6 @@ type IDService interface {
 
 // IDEntry is used when listing __ids.
 type IDEntry struct {
-	ID string `json:"id"`
+	ID   string `json:"id"`
+	Hash string `json:"hash,omitempty"`
 }
