@@ -6,9 +6,9 @@ import (
 
 // Service defines the functions any read-write application needs to implement
 type Service interface {
-	Write(thing interface{}) error
-	Read(uuid string) (thing interface{}, found bool, err error)
-	Delete(uuid string) (found bool, err error)
+	Write(thing interface{}, transId string) error
+	Read(uuid string, transId string) (thing interface{}, found bool, err error)
+	Delete(uuid string, transId string) (found bool, err error)
 	DecodeJSON(*json.Decoder) (thing interface{}, identity string, err error)
 	Count() (int, error)
 	Check() error
